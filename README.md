@@ -16,7 +16,7 @@ tracting features from the Corel images. Then, we used the PCA as a features sel
 to minimize the dimensionality. Finally, we implemented the Annoy algorithm for
 similarity searches.
 
-## Part1: Feature Extraction
+### Part1: Feature Extraction
 
 - Vision Architecture
   - [Full article](https://arxiv.org/pdf/2010.11929.pdf)
