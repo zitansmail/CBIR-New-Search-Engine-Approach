@@ -16,7 +16,7 @@ tracting features from the Corel images. Then, we used the PCA as a features sel
 to minimize the dimensionality. Finally, we implemented the Annoy algorithm for
 similarity searches.
 
-### Part1: Feature Extraction
+### Feature Extraction
 
 - Vision Architecture
   - [Full article](https://arxiv.org/pdf/2010.11929.pdf)
@@ -28,7 +28,7 @@ The curse of dimensionality told that vectors in high dimension will sometimes l
 
 
 
-## Part2: Evaluation
+###  Evaluation
 
 CBIR system retrieves images based on __feature similarity__
 
@@ -96,7 +96,7 @@ Let me show some results of the system
 
 
 
-## Part4: Usage of Repository
+### Usage of Repository
 If you are interesting with the results, and want to try your own images,
 
 Please refer to [USAGE.md](https://github.com/pochih/CBIR/blob/master/USAGE.md)
@@ -105,5 +105,5 @@ The details are written inside.
 
 
 
-## Author
+### Author
 Po-Chih Huang / [@pochih](http://pochih.github.io/)
