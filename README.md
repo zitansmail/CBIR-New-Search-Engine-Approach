@@ -106,4 +106,4 @@ The details are written inside.
 
 
 ### Author
-Po-Chih Huang / [@pochih](http://pochih.github.io/)
+Zitane Smail / [@zitansmail](http://zitansmail.com)
