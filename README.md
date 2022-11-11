@@ -11,24 +11,16 @@ __Extract query image's feature, and retrieve similar ones from image database__
 
 ## Part1: Feature Extraction
 
-In this system, I implement several popular image features:
-- color-based
+In this system our approach is based on the ViT architecture for ex-
+tracting features from the Corel images. Then, we used the PCA as a features selector
+to minimize the dimensionality. Finally, we implemented the Annoy algorithm for
+similarity searches.:
+- Vision Architecture
   - [RGB histogram](https://github.com/pochih/CBIR/blob/master/src/color.py)
-- texture-based
-  - [gabor filter](https://github.com/pochih/CBIR/blob/master/src/gabor.py)
-- shape-based
-  - [daisy](https://github.com/pochih/CBIR/blob/master/src/daisy.py)
-  - [edge histogram](https://github.com/pochih/CBIR/blob/master/src/edge.py)
-  - [HOG (histogram of gradient)](https://github.com/pochih/CBIR/blob/master/src/HOG.py)
-- deep methods
-  - [VGG net](https://github.com/pochih/CBIR/blob/master/src/vggnet.py)
-  - [Residual net](https://github.com/pochih/CBIR/blob/master/src/resnet.py)
 
 ##### *all features are modulized*
 
-### Feature Fusion
-Some features are not robust enough, and turn to feature fusion
-- [fusion.py](https://github.com/pochih/CBIR/blob/master/src/fusion.py)
+
 
 ### Dimension Reduction
 The curse of dimensionality told that vectors in high dimension will sometimes lose distance property
