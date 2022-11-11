@@ -9,17 +9,17 @@ __Extract query image's feature, and retrieve similar ones from image database__
 <h6><a href='https://winstonhsu.info/2017f-mmai/'>Image src</a></h6>
 
 
-## Part1: Feature Extraction
+## Resume
 
 In this system our approach is based on the ViT architecture for ex-
 tracting features from the Corel images. Then, we used the PCA as a features selector
 to minimize the dimensionality. Finally, we implemented the Annoy algorithm for
-similarity searches.:
+similarity searches.
+
+## Part1: Feature Extraction
+
 - Vision Architecture
   - [Full article](https://arxiv.org/pdf/2010.11929.pdf)
-
-##### *all features are modulized*
-
 
 
 ### Dimension Reduction
