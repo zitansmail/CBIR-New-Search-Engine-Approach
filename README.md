@@ -23,7 +23,7 @@ similarity searches.
 
 ### Dimension Reduction
 The curse of dimensionality told that vectors in high dimension will sometimes lose distance property
-- [Random Projection](https://github.com/pochih/CBIR/blob/master/src/random_projection.py)
+- [PCA](https://github.com/pochih/CBIR/blob/master/src/random_projection.py)
 
 
 
@@ -31,47 +31,7 @@ The curse of dimensionality told that vectors in high dimension will sometimes l
 
 CBIR system retrieves images based on __feature similarity__
 
-Robustness of system is evaluated by MMAP (mean MAP), the evaluation formulas is refer to <a href='http://web.stanford.edu/class/cs276/handouts/EvaluationNew-handout-1-per.pdf' target="_blank">here</a>
-
-- image AP   : average of precision at each hit
-  - depth=K means the system will return top-K images
-  - a correct image in top-K is called a hit
-  - AP = (hit1.precision + hit2.precision + ... + hitH.precision) / H
-- class1 MAP = (class1.img1.AP + class1.img2.AP + ... + class1.imgM.AP) / M
-- MMAP       = (class1.MAP + class2.MAP + ... + classN.MAP) / N
-
-Implementation of evaluation can found at [evaluate.py](https://github.com/pochih/CBIR/blob/master/src/evaluate.py)
-
-My database contains 25 classes, each class with 20 images, 500 images in total, depth=K will return top-K images from database
-
-Method | color | daisy | edge | gabor | HOG | vgg19 | resnet152
---- | --- | --- | --- |--- |--- |--- |---
-Mean MAP (depth=10) | 0.614 | 0.468 | 0.301 | 0.346 | 0.450 | 0.914 | 0.944
-
-
-
-## Part3: Image Retrieval (return top 5 of each method)
-Let me show some results of the system
-
-### query1 - women dress
-#### query <img align='center' style="border-color:gray;border-width:2px;border-style:dashed" src='result/retrieval_result/query1-women_dress/query1.jpg' padding='5px' height="80px"></img>
-#### color <img align='center' style="border-color:gray;border-width:2px;border-style:dashed" src='result/retrieval_result/query1-women_dress/query1-color.jpg' padding='5px' height="80px"></img>
-#### daisy <img align='center' style="border-color:gray;border-width:2px;border-style:dashed" src='result/retrieval_result/query1-women_dress/query1-daisy.jpg' padding='5px' height="80px"></img>
-#### edge <img align='center' style="border-color:gray;border-width:2px;border-style:dashed" src='result/retrieval_result/query1-women_dress/query1-edge.jpg' padding='5px' height="80px"></img>
-#### gabor <img align='center' style="border-color:gray;border-width:2px;border-style:dashed" src='result/retrieval_result/query1-women_dress/query1-gabor.jpg' padding='5px' height="80px"></img>
-#### HOG <img align='center' style="border-color:gray;border-width:2px;border-style:dashed" src='result/retrieval_result/query1-women_dress/query1-hog.jpg' padding='5px' height="80px"></img>
-#### VGG19 <img align='center' style="border-color:gray;border-width:2px;border-style:dashed" src='result/retrieval_result/query1-women_dress/query1-vgg.jpg' padding='5px' height="80px"></img>
-#### Resnet152 <img align='center' style="border-color:gray;border-width:2px;border-style:dashed" src='result/retrieval_result/query1-women_dress/query1-res.jpg' padding='5px' height="80px"></img>
-
-
-
-### Usage of Repository
-If you are interesting with the results, and want to try your own images,
-
-Please refer to [USAGE.md](https://github.com/pochih/CBIR/blob/master/USAGE.md)
-
-The details are written inside.
-
+.... Passed
 
 
 ### Author
