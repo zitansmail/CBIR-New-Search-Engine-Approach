@@ -30,6 +30,7 @@ The curse of dimensionality told that vectors in high dimension will sometimes l
 ###  Evaluation
 
 CBIR system retrieves images based on __feature similarity__
+we have evaluated our CBIR system using the Cored-1K dataset with the same ten aforementioned classes; then, the precision and recall metrics are computed for each category, individually and overall. These metrics are calculated based on the top 20 images retrieved. Table below shows the findings results.
 
 Category | Precision (%) | Recall (%) 
 --- | --- | ---
