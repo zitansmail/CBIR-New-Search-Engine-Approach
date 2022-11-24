@@ -32,7 +32,7 @@ The curse of dimensionality told that vectors in high dimension will sometimes l
 CBIR system retrieves images based on __feature similarity__
 
 Category | Precision (%) | Recall (%) 
---- | --- | --- | --- |--- |--- |--- |---
+--- | --- | ---
 Buses | 100 | 20 
 Mountains | 100 | 20 
 Beach | 90 | 18 
@@ -43,7 +43,7 @@ Africa | 100 | 20
 Horses | 100 | 20 
 Dinosaurs | 100 | 20 
 Buildings | 100 | 20 
-Average | 100 | 20 
+**Average**| **99** | **19.8** 
 
 
 ### Author
