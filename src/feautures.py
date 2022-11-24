@@ -12,85 +12,109 @@ import numpy as np
 import os
 from tqdm import tqdm
 from tensorflow.keras.models import Sequential
+import tensorflow as tf
+from omegaconf import DictConfig, OmegaConf
 
 
 
-def load_pretrained_vit()->Sequential:
-    """Run command in sub process.
-    Runs the command in a sub process with the variables from `env`
-    added in the current environment variables.
-    Parameters
-    ----------
-    command: List[str]
-        The command and it's parameters
-    env: Dict
-        The additional environment variables
-    Returns
-    -------
-    int
-        The return code of the command
-    """
+
+def load_pretrained_vit(IMAGE_SIZE : int)->Sequential:
+    
+    '''
+
+     Parameters
+     ----------
+     IMAGE_SIZE : int
+     DESCRIPTION.
+    
+     Returns
+     -------
+     Sequential
+     DESCRIPTION.
+
+     '''
+    
     print("[INFO] Start loading pre-trained model")
+    
     vit_model = vit.vit_l32(
         image_size = (int(IMAGE_SIZE), int(IMAGE_SIZE)),
         activation = 'softmax',
         pretrained = True,
         include_top = False,
         pretrained_top = False)
+    
     return vit_model
     
 
 # Extract feautures from giving image
-def get_feauture_vector(file,model):
-    """Run command in sub process.
-    Runs the command in a sub process with the variables from `env`
-    added in the current environment variables.
+def get_feauture_vector(file : str, IMAGE_SIZE : int ,model: Sequential )->Sequential:
+    '''
+    
+
     Parameters
     ----------
-    command: List[str]
-        The command and it's parameters
-    env: Dict
-        The additional environment variables
+    file : str
+        DESCRIPTION.
+    IMAGE_SIZE : int
+        DESCRIPTION.
+    model : Sequential
+        DESCRIPTION.
+
     Returns
     -------
-    int
-        The return code of the command
-    """
+    Sequential
+        DESCRIPTION.
+
+    '''
+    
+ 
     #load image from giving path
     img = load_img(file, target_size=(int(IMAGE_SIZE), int(IMAGE_SIZE)))
     # convert from 'PIL.Image.Image' to numpy array
     img = img_to_array(img)
     #reshape the giving image
-    reshaped_img = img.reshape(1,int(IMAGE_SIZE), int(IMAGE_SIZE), 3)
+    img_array = tf.expand_dims(img, 0)
+    img_array = img_array /255
+    
     #predict fauture vector
-    return model.predict(reshaped_img, verbose=0)
+    return model.predict(img_array, verbose=0)
 
 
 
-def extracte_features(images : list, dirtosave, cfg):
-    """Run command in sub process.
-    Runs the command in a sub process with the variables from `env`
-    added in the current environment variables.
+def extracte_features(images : list, dirtosave : str, cfg : DictConfig)->None:
+    '''
+    
+
     Parameters
     ----------
-    command: List[str]
-        The command and it's parameters
-    env: Dict
-        The additional environment variables
+    images : list
+        DESCRIPTION.
+    dirtosave : str
+        DESCRIPTION.
+    cfg : DictConfig
+        DESCRIPTION.
+
+    Raises
+    ------
+    Exception
+        DESCRIPTION.
+
     Returns
     -------
-    int
-        The return code of the command
-    """
+    None
+        DESCRIPTION.
+
+    '''
+   
     
-    global IMAGE_SIZE, reshaped_image
+    
     IMAGE_SIZE = cfg["modele"]["image_size"]
-    model = load_pretrained_vit()
+    model = load_pretrained_vit(IMAGE_SIZE)
     print(type(model))
     extracted_feautures = {}
     try:
         for image in tqdm(images):
-            prediction = get_feauture_vector(image, model)
+            prediction = get_feauture_vector(image,IMAGE_SIZE, model)
             extracted_feautures[image] = prediction
             
         print('\n Save feautures and filenames')

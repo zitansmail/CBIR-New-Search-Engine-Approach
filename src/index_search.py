@@ -10,33 +10,35 @@ import joblib
 import os
 
 from annoy import AnnoyIndex
+from PIL import Image
 
 from feautures import get_feauture_vector, load_pretrained_vit
+from omegaconf import DictConfig, OmegaConf
 
 
+# Applaying Annoy - and pca to reduce the verctor dementions
+def build_annoy_index(db_path: str, cfg:  DictConfig) -> None:
+    '''
+   Parameters
+   ----------
+   db_path : str
+       DESCRIPTION.
+   cfg : DictConfig
+       DESCRIPTION.
 
-#Applaying Annoy - and pca to reduce the verctor dementions
-def build_annoy_index(db_path, cfg):
-    """Run command in sub process.
-    Runs the command in a sub process with the variables from `env`
-    added in the current environment variables.
-    Parameters
-    ----------
-    command: List[str]
-        The command and it's parameters
-    env: Dict
-        The additional environment variables
-    Returns
-    -------
-    int
-        The return code of the command
-    """
-    
-    feutures_shape =  cfg["modele"]["feutures_shape"]
-    n_components =  cfg["PCA"]["n_components"]
-    n_three =  cfg["Annoy"]["n_tree"]
+   Returns
+   -------
+   None
+       DESCRIPTION.
+
+    '''
+
+    feutures_shape = cfg["modele"]["feutures_shape"]
+    n_components = cfg["PCA"]["n_components"]
+    n_three = cfg["Annoy"]["n_tree"]
     print("[INFO] Loading Features")
-    feature_list = np.load(os.path.join(db_path, 'feautures.npy')).reshape(-1,feutures_shape)
+    feature_list = np.load(os.path.join(
+        db_path, 'feautures.npy')).reshape(-1, feutures_shape)
 
     print("[INFO] Running PCA")
     # 128 default value
@@ -53,38 +55,48 @@ def build_annoy_index(db_path, cfg):
 
     index.build(n_three)
     index.save(os.path.join(db_path, "index.annoy"))
-    
-    
-#get Similar images path 
-def get_similar_images_path(input_path, model ,new, output_path=r"C:/Users/SecondArticle/corel Database", features_path=r"C:/Users/SecondArticle/corel Database", index_path=r"C:/Users/SecondArticle/corel Database", n=20):
-    """Run command in sub process.
-    Runs the command in a sub process with the variables from `env`
-    added in the current environment variables.
+
+
+# get Similar images path
+def get_similar_images_path(input_path, IMAGE_SIZE,  output_path=r"C:\Users\v-philippe\Desktop\python_pro_per\results", features_path=r"C:\Users\v-philippe\Desktop\python_pro_per\database", index_path=r"C:\Users\v-philippe\Desktop\python_pro_per\database", n=20):
+    '''
+
+
     Parameters
     ----------
-    command: List[str]
-        The command and it's parameters
-    env: Dict
-        The additional environment variables
+    input_path : TYPE
+        DESCRIPTION.
+    IMAGE_SIZE : TYPE
+        DESCRIPTION.
+    output_path : TYPE, optional
+        DESCRIPTION. The default is results".
+    features_path : TYPE, optional
+        DESCRIPTION. The default is database".
+    index_path : TYPE, optional
+        DESCRIPTION. The default is database".
+    n : TYPE, optional
+        DESCRIPTION. The default is 20.
+
     Returns
     -------
-    int
-        The return code of the command
-    """
-    
+    resultPath : TYPE
+        DESCRIPTION.
+
+    '''
+
     print("[INFO] Instantiating Model")
-    resultPath= []
+    resultPath = []
     print("[INFO] Loading Image Filename Mapping")
     filename_list = np.load(os.path.join(features_path, "filesnames.npy"))
 
     print("[INFO] Extracting Feature Vector")
-    model = load_pretrained_vit()
-    image = get_feauture_vector(input_path,model)
+    model = load_pretrained_vit(IMAGE_SIZE)
+    image = get_feauture_vector(input_path, IMAGE_SIZE, model)
     #input_features = np.array(image)
     input_features = image
 
     print("[INFO] Applying PCA")
-    
+
     pca = joblib.load(os.path.join(features_path, "pca.joblib"))
     components = pca.transform(input_features)[0]
 
@@ -93,16 +105,21 @@ def get_similar_images_path(input_path, model ,new, output_path=r"C:/Users/Secon
     ann_index.load(os.path.join(index_path, "index.annoy"))
 
     print("[INFO] Finding Similar Images")
-    indices = ann_index.get_nns_by_vector(components, n, search_k=-1, include_distances=False)
+    indices = ann_index.get_nns_by_vector(
+        components, n, search_k=-1, include_distances=False)
     indices = np.array(indices)
     similar_image_paths = filename_list[indices]
 
     print("[INFO] Saving Similar Images to {0}".format(output_path))
-    feature_list = np.load(os.path.join(features_path, "feauturesCorelFull.npy")).reshape(-1,1024)
-    feature_list = feature_list[indices]
-   
+    for index, image in enumerate(similar_image_paths):
+        img_path = os.path.join(os.getcwd(), image)
+        img = Image.open(img_path)
+        img.save(os.path.join(output_path, 'res_'+str(index)+'.jpg'))
+    #feature_list = np.load(os.path.join(features_path, "feautures.npy")).reshape(-1,1024)
+    #feature_list = feature_list[indices]
+
     for idx, path in enumerate(similar_image_paths):
-        #print(path)
-        #break
+        # print(path)
+        # break
         resultPath.append(path.split('/')[-1])
     return resultPath
