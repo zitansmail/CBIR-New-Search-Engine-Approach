@@ -31,7 +31,13 @@ The curse of dimensionality told that vectors in high dimension will sometimes l
 
 CBIR system retrieves images based on __feature similarity__
 
-.... Passed
+Method | color | daisy | edge | gabor | HOG | vgg19 | resnet152
+--- | --- | --- | --- |--- |--- |--- |---
+Mean MAP (depth=10) | 0.614 | 0.468 | 0.301 | 0.346 | 0.450 | 0.914 | 0.944
+--- | --- | --- | --- |--- |--- |--- |---
+Mean MAP (depth=10) | 0.614 | 0.468 | 0.301 | 0.346 | 0.450 | 0.914 | 0.944
+--- | --- | --- | --- |--- |--- |--- |---
+Mean MAP (depth=10) | 0.614 | 0.468 | 0.301 | 0.346 | 0.450 | 0.914 | 0.944
 
 
 ### Author
