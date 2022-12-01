@@ -39,7 +39,7 @@ def evaluate(cfg : DictConfig)->list:
     if os.path.exists(image_path) == False:
         raise Exception("Image Not Found")
     #return image_path
-    results = get_similar_images_path(image_path, IMAGE_SIZE)
+    results = getSimilarImagesPath(image_path, IMAGE_SIZE)
     print(results)
 
 

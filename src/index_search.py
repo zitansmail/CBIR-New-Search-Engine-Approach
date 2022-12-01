@@ -17,7 +17,7 @@ from omegaconf import DictConfig, OmegaConf
 
 
 # Applaying Annoy - and pca to reduce the verctor dementions
-def build_annoy_index(db_path: str, cfg:  DictConfig) -> None:
+def buildAnnoyIndex(db_path: str, cfg:  DictConfig) -> None:
     '''
    Parameters
    ----------
@@ -58,7 +58,7 @@ def build_annoy_index(db_path: str, cfg:  DictConfig) -> None:
 
 
 # get Similar images path
-def get_similar_images_path(input_path, IMAGE_SIZE,  output_path=r"C:\Users\v-philippe\Desktop\python_pro_per\results", features_path=r"C:\Users\v-philippe\Desktop\python_pro_per\database", index_path=r"C:\Users\v-philippe\Desktop\python_pro_per\database", n=20):
+def getSimilarImagesPath(input_path, IMAGE_SIZE,  output_path=r"C:\Users\v-philippe\Desktop\python_pro_per\results", features_path=r"C:\Users\v-philippe\Desktop\python_pro_per\database", index_path=r"C:\Users\v-philippe\Desktop\python_pro_per\database", n=20):
     '''
 
 

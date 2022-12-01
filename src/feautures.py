@@ -18,7 +18,7 @@ from omegaconf import DictConfig, OmegaConf
 
 
 
-def load_pretrained_vit(IMAGE_SIZE : int)->Sequential:
+def loadPretrainedVit(IMAGE_SIZE : int)->Sequential:
     
     '''
 
@@ -47,7 +47,7 @@ def load_pretrained_vit(IMAGE_SIZE : int)->Sequential:
     
 
 # Extract feautures from giving image
-def get_feauture_vector(file : str, IMAGE_SIZE : int ,model: Sequential )->Sequential:
+def getFeautureVector(file : str, IMAGE_SIZE : int ,model: Sequential )->Sequential:
     '''
     
 
@@ -81,7 +81,7 @@ def get_feauture_vector(file : str, IMAGE_SIZE : int ,model: Sequential )->Seque
 
 
 
-def extracte_features(images : list, dirtosave : str, cfg : DictConfig)->None:
+def exctacteFeatures(images : list, dirtosave : str, cfg : DictConfig)->None:
     '''
     
 
@@ -109,12 +109,12 @@ def extracte_features(images : list, dirtosave : str, cfg : DictConfig)->None:
     
     
     IMAGE_SIZE = cfg["modele"]["image_size"]
-    model = load_pretrained_vit(IMAGE_SIZE)
+    model = loadPretrainedVit(IMAGE_SIZE)
     print(type(model))
     extracted_feautures = {}
     try:
         for image in tqdm(images):
-            prediction = get_feauture_vector(image,IMAGE_SIZE, model)
+            prediction = getFeautureVector(image,IMAGE_SIZE, model)
             extracted_feautures[image] = prediction
             
         print('\n Save feautures and filenames')

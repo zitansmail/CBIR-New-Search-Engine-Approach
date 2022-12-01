@@ -6,7 +6,7 @@
 
 
 from feautures import *
-from index_search import build_annoy_index
+from index_search import buildAnnoyIndex
 import glob
 import hydra
 from omegaconf import DictConfig, OmegaConf
@@ -32,8 +32,8 @@ def my_app(cfg : DictConfig) -> None:
     dataset_path = cfg["environement"]["dataset_path"]
     feutures_path = cfg["environement"]["feutures_path"]
     dataset = glob.glob(f"{dataset_path}/**/*.jpg", recursive=True)
-    extracte_features(dataset, feutures_path, cfg)
-    build_annoy_index(feutures_path, cfg)
+    exctacteFeatures(dataset, feutures_path, cfg)
+    buildAnnoyIndex(feutures_path, cfg)
 
 if __name__ == "__main__":
     my_app()
