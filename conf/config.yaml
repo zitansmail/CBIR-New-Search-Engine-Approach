@@ -1,6 +1,6 @@
 environement:
-  dataset_path: C:/Users/v-philippe/Desktop/python_pro_per/dataset/training_set
-  feutures_path: C:/Users/v-philippe/Desktop/python_pro_per/database
+  dataset_path: path to your dataset
+  feutures_path: path to stock featuress
   Ovveride_modele : False
 
 modele:
