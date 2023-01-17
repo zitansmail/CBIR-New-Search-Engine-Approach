@@ -115,11 +115,8 @@ def getSimilarImagesPath(input_path, IMAGE_SIZE,  output_path=r"C:\Users\v-phili
         img_path = os.path.join(os.getcwd(), image)
         img = Image.open(img_path)
         img.save(os.path.join(output_path, 'res_'+str(index)+'.jpg'))
+        resultPath.append(image.split('/')[-1])
     #feature_list = np.load(os.path.join(features_path, "feautures.npy")).reshape(-1,1024)
     #feature_list = feature_list[indices]
 
-    for idx, path in enumerate(similar_image_paths):
-        # print(path)
-        # break
-        resultPath.append(path.split('/')[-1])
     return resultPath
