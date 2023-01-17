@@ -35,48 +35,18 @@ see the picture for details:
 
 <img align='center' style="border-color:gray;border-width:2px;border-style:dashed"   src='/images/dataset.PNG' padding='5px'></img>
 
-In my database, there are 25 classes, each class has its own directory,
+In my database, there are 10 classes, each class has its own directory,
 
 and the images belong to this class should put into this directory.
 
 ### Part2: run the code
-I implement several algorithm, you can run it with python3.
+the starting file is called main.py which will handle features extraction, then applying the pca and finally build the annoy index which will be used after in order to retrieve similar images and save them under the results directory.
 
-#### For RGB histogram
-```python
-python3 src/color.py
-```
-
-#### For daisy image descriptor
-```python
-python3 src/daisy.py
-```
-
-#### For gabor filter
-```python
-python3 src/gabor.py
-```
-
-#### For edge histogram
-```python
-python3 src/edge.py
-```
-
-#### For histogram of gradient (HOG)
-```python
-python3 src/HOG.py
-```
-
-#### For VGG19
-You need to install pytorch0.2 to run the code
-```python
-python3 src/vggnet.py
-```
 
 #### For ResNet152
 You need to install pytorch0.2 to run the code
 ```python
-python3 src/resnet.py
+python3 src/main.py
 ```
 
 Above are basic usage of my codes.
