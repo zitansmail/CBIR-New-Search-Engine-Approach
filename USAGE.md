@@ -27,13 +27,13 @@ you need to put your images into a training_set directory in __dataset/__
             ├── class n/
 
 
-__all your image should put into database/__
+__all your image should put into dataset/__
 
 In this directory, each image class should have its own directory
 
 see the picture for details:
 
-<img align='center' style="border-color:gray;border-width:2px;border-style:dashed"   src='https://github.com/pochih/CBIR/blob/img/database.png' padding='5px'></img>
+<img align='center' style="border-color:gray;border-width:2px;border-style:dashed"   src='/images/dataset.png' padding='5px'></img>
 
 In my database, there are 25 classes, each class has its own directory,
 
