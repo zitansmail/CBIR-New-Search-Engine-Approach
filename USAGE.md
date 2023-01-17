@@ -7,18 +7,25 @@ It can divided to two parts.
 ### Part1: make your image database
 When you clone the repository, it will look like this:
 
-    ├── src/            # Source files
-    ├── result/         # Results
-    ├── USAGE.md        # How to use the code
-    └── README.md       # Intro to the repo
+    ├── conf/               # Configuration file
+    ├── database/           # Directory of saved files (features, filenames, annoy index, pca)
+    ├── dataset/            # Directory of all your images
+    ├── images/             # Results
+    ├── outputs/            # Results
+    ├── resukts/            # Directory where the results will be stored
+    ├── src/                # Source files
+    ├── README.md           # How to use the code
+    └── USAGE.md            # Intro to the repo
 
-you need to add your images into a directory called __database/__, so it will look like this:
+you need to put your images into a training_set directory in __dataset/__
 
-    ├── src/            # Source files
-    ├── result/         # Results
-    ├── USAGE.md        # How to use the code
-    ├── README.md       # Intro to the repo
-    └── database/       # Directory of all your images
+    ├── dataset/            
+       ├── training_set/
+            ├── class 1/ 
+            ├── class 2/
+
+            ├── class n/
+
 
 __all your image should put into database/__
 
