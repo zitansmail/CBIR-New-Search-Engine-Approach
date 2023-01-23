@@ -33,7 +33,7 @@ In this directory, each image class should have its own directory
 
 see the picture for details:
 
-<img align='center' style="border-color:gray;border-width:2px;border-style:dashed"   src='/images/dataset.PNG' padding='5px'></img>
+<img align='center' style="border-color:gray;border-width:2px;border-style:dashed"   src='/images/datasetMod.PNG' padding='5px'></img>
 
 In my database, there are 10 classes, each class has its own directory,
 
