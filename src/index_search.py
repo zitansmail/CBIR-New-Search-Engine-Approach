@@ -58,7 +58,7 @@ def buildAnnoyIndex(db_path: str, cfg:  DictConfig) -> None:
 
 
 # get Similar images path
-def getSimilarImagesPath(input_path, IMAGE_SIZE,  output_path=r"C:\Users\v-philippe\Desktop\python_pro_per\results", features_path=r"C:\Users\v-philippe\Desktop\python_pro_per\database", index_path=r"C:\Users\v-philippe\Desktop\python_pro_per\database", n=20):
+def getSimilarImagesPath(input_path, IMAGE_SIZE,  output_path=r"\python_pro_per\results", features_path=r"\python_pro_per\database", index_path=r"\python_pro_per\database", n=20):
     '''
 
 
