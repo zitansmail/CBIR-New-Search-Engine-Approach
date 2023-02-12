@@ -43,42 +43,10 @@ and the images belong to this class should put into this directory.
 the starting file is called main.py which will handle features extraction, then applying the pca and finally build the annoy index which will be used after in order to retrieve similar images and save them under the results directory.
 
 
-#### For ResNet152
-You need to install pytorch0.2 to run the code
 ```python
 python3 src/main.py
 ```
 
-Above are basic usage of my codes.
-
-There are some advanced issue such as features fusion and dimension reduction,
-
-the intro of these parts will be written further in the future :D
-
-### Appendix: feature fusion
-I implement the basic feature fusion method -- concatenation.
-
-Codes for feature fusion is written in [fusion.py](https://github.com/pochih/CBIR/blob/master/src/fusion.py)
-
-In fusion.py, there is a class called *FeatureFusion*.
-
-You can create a *FeatureFusion* instance with an argument called **features**.
-
-For example, in [fusion.py line140](https://github.com/pochih/CBIR/blob/master/src/fusion.py#L140)
-```python
-fusion = FeatureFusion(features=['color', 'daisy'])
-APs = evaluate_class(db, f_instance=fusion, d_type=d_type, depth=depth)
-```
-- The first line means to concatenate color featrue and daisy feature.
-- The second line means to evaluate with the concatenated feature.
-
-If you want to know the performance of all possible feature combination, look at [fusion.py line122](https://github.com/pochih/CBIR/blob/master/src/fusion.py#L122) for example
-```python
-evaluate_feats(db, N=2, d_type='d1')
-```
-- Parameter *N* means how many feature you want to concatenate.
-- Parameter *d_type* means the distance metric you want to use.
-- Function *evaluate_feats* will generate a result file that record performances for all feature concatenation.
 
 ## Author
 Zitane Smail / [@zitansmail](http://zitansmail.github.io/)
