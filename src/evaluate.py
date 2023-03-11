@@ -19,18 +19,15 @@ def evaluate(cfg : DictConfig)->list:
 
     Parameters
     ----------
-    cfg : DictConfig
-        DESCRIPTION.
+    cfg : DictConfig.
 
     Raises
     ------
-    Exception
-        DESCRIPTION.
+    Exception.
 
     Returns
     -------
-    list
-        DESCRIPTION.
+    list.
 
     '''
     global IMAGE_SIZE
@@ -45,8 +42,6 @@ def evaluate(cfg : DictConfig)->list:
 
 
     
-
-
 evaluate()
     
 

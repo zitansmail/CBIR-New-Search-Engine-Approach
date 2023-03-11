@@ -25,12 +25,10 @@ def loadPretrainedVit(IMAGE_SIZE : int)->Sequential:
      Parameters
      ----------
      IMAGE_SIZE : int
-     DESCRIPTION.
     
      Returns
      -------
      Sequential
-     DESCRIPTION.
 
      '''
     
@@ -53,17 +51,13 @@ def getFeautureVector(file : str, IMAGE_SIZE : int ,model: Sequential )->Sequent
 
     Parameters
     ----------
-    file : str
-        DESCRIPTION.
-    IMAGE_SIZE : int
-        DESCRIPTION.
-    model : Sequential
-        DESCRIPTION.
+    file : str.
+    IMAGE_SIZE : int.
+    model : Sequential.
 
     Returns
     -------
-    Sequential
-        DESCRIPTION.
+    Sequential.
 
     '''
     
@@ -87,22 +81,17 @@ def exctacteFeatures(images : list, dirtosave : str, cfg : DictConfig)->None:
 
     Parameters
     ----------
-    images : list
-        DESCRIPTION.
-    dirtosave : str
-        DESCRIPTION.
-    cfg : DictConfig
-        DESCRIPTION.
+    images : list.
+    dirtosave : str.
+    cfg : DictConfig.
 
     Raises
     ------
-    Exception
-        DESCRIPTION.
+    Exception.
 
     Returns
     -------
-    None
-        DESCRIPTION.
+    None.
 
     '''
    

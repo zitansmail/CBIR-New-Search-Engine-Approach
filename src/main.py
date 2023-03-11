@@ -22,12 +22,10 @@ def my_app(cfg : DictConfig) -> None:
     Parameters
     ----------
     cfg : DictConfig
-        DESCRIPTION.
 
     Returns
     -------
     None
-        DESCRIPTION.
 
     '''
     dataset_path = cfg["environement"]["dataset_path"]

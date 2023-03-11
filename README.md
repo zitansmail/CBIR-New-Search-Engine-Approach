@@ -1,7 +1,9 @@
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source-150x25.png?v=103)](https://github.com/ellerbrock/open-source-badges/)
 
 ## Intro 
-__This repository contains a CBIR (content-based image retrieval) system__
+__This repository contains a CBIR (content-based image retrieval) system Implimentation for my conference paper__
+
+__[Full article](https://link.springer.com/chapter/10.1007/978-3-031-26254-8_9)
 
 __Extract query image's feature, and retrieve similar ones from image database__
 
@@ -23,15 +25,14 @@ similarity searches.
 
 ### Dimension Reduction
 The curse of dimensionality told that vectors in high dimension will sometimes lose distance property
-- [PCA](https://github.com/pochih/CBIR/blob/master/src/random_projection.py)
-
+- PCA
 
 
 ###  Evaluation
 
 CBIR system retrieves images based on __feature similarity__
 
-we have evaluated our CBIR system using the Cored-1K dataset with the same ten aforementioned classes; then, the precision and recall metrics are computed for each category, individually and overall. These metrics are calculated based on the top 20 images retrieved. Table below shows the findings results.
+we have evaluated our CBIR system using the **Cored-1K dataset** with the same ten aforementioned classes; then, the precision and recall metrics are computed for each category, individually and overall. These metrics are calculated based on the **top 20 images retrieved**. Table below shows the findings results.
 
 Category | Precision (%) | Recall (%) 
 --- | --- | ---

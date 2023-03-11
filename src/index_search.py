@@ -22,14 +22,13 @@ def buildAnnoyIndex(db_path: str, cfg:  DictConfig) -> None:
    Parameters
    ----------
    db_path : str
-       DESCRIPTION.
+       database path.
    cfg : DictConfig
-       DESCRIPTION.
+       DictConfig.
 
    Returns
    -------
    None
-       DESCRIPTION.
 
     '''
 
@@ -65,22 +64,21 @@ def getSimilarImagesPath(input_path, IMAGE_SIZE,  output_path=r"\python_pro_per\
     Parameters
     ----------
     input_path : TYPE
-        DESCRIPTION.
+        
     IMAGE_SIZE : TYPE
-        DESCRIPTION.
+        
     output_path : TYPE, optional
-        DESCRIPTION. The default is results".
+         The default is results".
     features_path : TYPE, optional
-        DESCRIPTION. The default is database".
+         The default is database".
     index_path : TYPE, optional
-        DESCRIPTION. The default is database".
+         The default is database".
     n : TYPE, optional
-        DESCRIPTION. The default is 20.
+         The default is 20.
 
     Returns
     -------
     resultPath : TYPE
-        DESCRIPTION.
 
     '''
 
@@ -116,7 +114,6 @@ def getSimilarImagesPath(input_path, IMAGE_SIZE,  output_path=r"\python_pro_per\
         img = Image.open(img_path)
         img.save(os.path.join(output_path, 'res_'+str(index)+'.jpg'))
         resultPath.append(image.split('/')[-1])
-    #feature_list = np.load(os.path.join(features_path, "feautures.npy")).reshape(-1,1024)
-    #feature_list = feature_list[indices]
+
 
     return resultPath
