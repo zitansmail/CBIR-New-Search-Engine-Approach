@@ -1,4 +1,0 @@
-environement:
-  dataset_path: C:/Users/v-philippe/Desktop/python_pro_per/dataset/training_set
-  feutures_path: C:/Users/v-philippe/Desktop/python_pro_per/database
-  pass: secret
