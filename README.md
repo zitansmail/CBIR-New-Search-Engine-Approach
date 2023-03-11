@@ -3,7 +3,7 @@
 ## Intro 
 __This repository contains a CBIR (content-based image retrieval) system Implimentation for my conference paper__
 
-__[Full article](https://link.springer.com/chapter/10.1007/978-3-031-26254-8_9)
+[Full article](https://link.springer.com/chapter/10.1007/978-3-031-26254-8_9)
 
 __Extract query image's feature, and retrieve similar ones from image database__
 
