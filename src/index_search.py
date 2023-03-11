@@ -12,7 +12,7 @@ import os
 from annoy import AnnoyIndex
 from PIL import Image
 
-from feautures import get_feauture_vector, load_pretrained_vit
+from feautures import getFeautureVector, loadPretrainedVit
 from omegaconf import DictConfig, OmegaConf
 
 

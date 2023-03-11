@@ -1,0 +1,10 @@
+tensorflow
+tensorflow-addons
+opencv-python
+scikit-learn
+joblib
+numpy
+pillow
+vit_keras
+hydra-core
+annoy

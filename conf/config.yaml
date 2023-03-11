@@ -1,6 +1,6 @@
 environement:
-  dataset_path: path to your dataset
-  feutures_path: path to stock featuress
+  dataset_path: C:\Users\Hp\Desktop\CBIR-New-Search-Engine-Approach\dataset\training_set
+  feutures_path: C:\Users\Hp\Desktop\CBIR-New-Search-Engine-Approach\database
   Ovveride_modele : False
 
 modele:

@@ -110,14 +110,13 @@ def exctacteFeatures(images : list, dirtosave : str, cfg : DictConfig)->None:
     
     IMAGE_SIZE = cfg["modele"]["image_size"]
     model = loadPretrainedVit(IMAGE_SIZE)
-    print(type(model))
     extracted_feautures = {}
     try:
         for image in tqdm(images):
             prediction = getFeautureVector(image,IMAGE_SIZE, model)
             extracted_feautures[image] = prediction
             
-        print('\n Save feautures and filenames')
+        print('[INFO] Save feautures and filenames')
         filenames = np.array(list(extracted_feautures.keys()))
         features = np.array(list(extracted_feautures.values()))
         
